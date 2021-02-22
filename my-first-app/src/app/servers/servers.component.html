@@ -1,0 +1,17 @@
+<h2>Servers</h2>
+<label>Server Name</label>
+<!-- <input type="text" class="form-control" (input)="onUserInput($event)" /> -->
+ <input type="text" class="form-control" [(ngModel)]="serverName" />
+ 
+<!-- Square brackets denote to Angular a dynamic property binding. This is angular syntax and is evaluated by angular -->
+<button (click)="onCreateServer()" [disabled]="!allowNewServer" class="btn btn-primary">Add Server</button>
+<p>Allow New Server: {{allowNewServer}}</p>
+<p>Creation Status: {{serverCreationStatus}}</p>
+
+<P *ngIf="serverCreated; else noServer">Server was created: {{ serverName }}</P>
+<ng-template #noServer>
+    <p>No Server has been created.</p>
+</ng-template>
+
+<app-server></app-server>
+<app-server></app-server>
